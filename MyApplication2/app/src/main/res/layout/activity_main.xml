@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1A1A1A">
+
+    <!-- APP TITLE -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VIPER4ARISE FX"
+        android:textColor="#4ECFB0"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp"
+        android:background="#1A4A40"/>
+
+    <!-- TABS ROW (manual using RadioGroup as tabs) -->
+    <RadioGroup
+        android:id="@+id/tabGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#1A4A40"
+        android:paddingBottom="4dp">
+
+        <RadioButton
+            android:id="@+id/tabHeadset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="HEAD-\nSET"
+            android:textColor="#4ECFB0"
+            android:textSize="9sp"
+            android:gravity="center"
+            android:button="@null"
+            android:checked="true"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"/>
+
+        <RadioButton
+            android:id="@+id/tabPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="PHONE\nSPEAKER"
+            android:textColor="#6AAA95"
+            android:textSize="9sp"
+            android:gravity="center"
+            android:button="@null"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"/>
+
+        <RadioButton
+            android:id="@+id/tabBluetooth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="BLUE-\nTOOTH"
+            android:textColor="#6AAA95"
+            android:textSize="9sp"
+            android:gravity="center"
+            android:button="@null"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"/>
+
+        <RadioButton
+            android:id="@+id/tabUsb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="USB/\nDOCK"
+            android:textColor="#6AAA95"
+            android:textSize="9sp"
+            android:gravity="center"
+            android:button="@null"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"/>
+
+    </RadioGroup>
+
+    <!-- SETTINGS LIST -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#1E1E1E">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 1. Master Power -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Master Power"
+                    android:textColor="#DDDDDD"
+                    android:textSize="14sp"/>
+
+                <Switch
+                    android:id="@+id/switchMasterPower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#2A2A2A"/>
+
+            <!-- 2. Playback Gain Control -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Playback Gain Control"
+                    android:textColor="#DDDDDD"
+                    android:textSize="14sp"/>
+
+                <Switch
+                    android:id="@+id/switchPlaybackGain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#2A2A2A"/>
+
+            <!-- 3. FET Compressor -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="FET Compressor"
+                    android:textColor="#DDDDDD"
+                    android:textSize="14sp"/>
+
+                <Switch
+                    android:id="@+id/switchFETCompressor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#2A2A2A"/>
+
+            <!-- 4. ViPER-DDC -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ViPER-DDC"
+                        android:textColor="#DDDDDD"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/tvViperTimer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00"
+                        android:textColor="#4ECFB0"
+                        android:textSize="11sp"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+                <Switch
+                    android:id="@+id/switchViperDDC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#2A2A2A"/>
+
+            <!-- 5. Spectrum Extension -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Spectrum Extension"
+                    android:textColor="#DDDDDD"
+                    android:textSize="14sp"/>
+
+                <Switch
+                    android:id="@+id/switchSpectrumExtension"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#2A2A2A"/>
+
+            <!-- 6. FIR Equalizer -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="FIREqualizer"
+                    android:textColor="#DDDDDD"
+                    android:textSize="14sp"/>
+
+                <Switch
+                    android:id="@+id/switchFIREqualizer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#2A2A2A"/>
+
+            <!-- 7. Convolver -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Convolver"
+                    android:textColor="#DDDDDD"
+                    android:textSize="14sp"/>
+
+                <Switch
+                    android:id="@+id/switchConvolver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#2A2A2A"/>
+
+            <!-- 8. Field Surround -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Field Surround"
+                    android:textColor="#DDDDDD"
+                    android:textSize="14sp"/>
+
+                <Switch
+                    android:id="@+id/switchFieldSurround"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
