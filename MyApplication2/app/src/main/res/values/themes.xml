@@ -1,10 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.MyApplication" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.MyApplication" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#1A4A40</item>
         <item name="colorPrimaryDark">#1A4A40</item>
-        <item name="colorAccent">#4ECFB0</item>
+        <item name="colorAccent">#1A7FD4</item>
         <item name="android:windowBackground">#1A1A1A</item>
-        <item name="android:statusBarColor">#1A4A40</item>
+        <item name="switchStyle">@style/TealSwitch</item>
+    </style>
+
+    <style name="TealSwitch" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="showText">true</item>
+        <item name="switchMinWidth">80dp</item>
+        <item name="thumbTextPadding">10dp</item>
+        <item name="android:textOn">ON</item>
+        <item name="android:textOff">OFF</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:thumb">@drawable/switch_thumb</item>
+        <item name="android:track">@drawable/switch_track</item>
+        <item name="switchTextAppearance">@style/SwitchText</item>
+    </style>
+
+    <style name="SwitchText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

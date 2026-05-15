@@ -3,22 +3,15 @@ package com.example.myapplication;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Switch switchMasterPower;
-    private Switch switchPlaybackGain;
-    private Switch switchFETCompressor;
-    private Switch switchViperDDC;
-    private Switch switchSpectrumExtension;
-    private Switch switchFIREqualizer;
-    private Switch switchConvolver;
-    private Switch switchFieldSurround;
+    private CustomSwitch switchMasterPower, switchPlaybackGain, switchFETCompressor;
+    private CustomSwitch switchViperDDC, switchSpectrumExtension, switchFIREqualizer;
+    private CustomSwitch switchConvolver, switchFieldSurround;
     private TextView tvViperTimer;
 
     private Handler timerHandler = new Handler();
@@ -59,76 +52,46 @@ public class MainActivity extends AppCompatActivity {
         switchConvolver.setChecked(true);
         switchFieldSurround.setChecked(false);
 
-        switchMasterPower.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                switchPlaybackGain.setEnabled(isChecked);
-                switchFETCompressor.setEnabled(isChecked);
-                switchViperDDC.setEnabled(isChecked);
-                switchSpectrumExtension.setEnabled(isChecked);
-                switchFIREqualizer.setEnabled(isChecked);
-                switchConvolver.setEnabled(isChecked);
-                switchFieldSurround.setEnabled(isChecked);
-                Toast.makeText(MainActivity.this, "Master Power: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show();
-            }
+        switchMasterPower.setOnCheckedChangeListener(isChecked -> {
+            switchPlaybackGain.setEnabled(isChecked);
+            switchFETCompressor.setEnabled(isChecked);
+            switchViperDDC.setEnabled(isChecked);
+            switchSpectrumExtension.setEnabled(isChecked);
+            switchFIREqualizer.setEnabled(isChecked);
+            switchConvolver.setEnabled(isChecked);
+            switchFieldSurround.setEnabled(isChecked);
+            Toast.makeText(this, "Master Power: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show();
         });
 
-        switchPlaybackGain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Toast.makeText(MainActivity.this, "Playback Gain: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show();
+        switchPlaybackGain.setOnCheckedChangeListener(isChecked ->
+                Toast.makeText(this, "Playback Gain: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show());
+
+        switchFETCompressor.setOnCheckedChangeListener(isChecked ->
+                Toast.makeText(this, "FET Compressor: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show());
+
+        switchViperDDC.setOnCheckedChangeListener(isChecked -> {
+            if (isChecked) {
+                tvViperTimer.setVisibility(View.VISIBLE);
+                timerSeconds = 0;
+                timerHandler.post(timerRunnable);
+            } else {
+                tvViperTimer.setVisibility(View.GONE);
+                timerHandler.removeCallbacks(timerRunnable);
             }
+            Toast.makeText(this, "ViPER-DDC: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show();
         });
 
-        switchFETCompressor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Toast.makeText(MainActivity.this, "FET Compressor: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show();
-            }
-        });
+        switchSpectrumExtension.setOnCheckedChangeListener(isChecked ->
+                Toast.makeText(this, "Spectrum Extension: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show());
 
-        switchViperDDC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    tvViperTimer.setVisibility(View.VISIBLE);
-                    timerSeconds = 0;
-                    timerHandler.post(timerRunnable);
-                } else {
-                    tvViperTimer.setVisibility(View.GONE);
-                    timerHandler.removeCallbacks(timerRunnable);
-                }
-                Toast.makeText(MainActivity.this, "ViPER-DDC: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show();
-            }
-        });
+        switchFIREqualizer.setOnCheckedChangeListener(isChecked ->
+                Toast.makeText(this, "FIREqualizer: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show());
 
-        switchSpectrumExtension.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Toast.makeText(MainActivity.this, "Spectrum Extension: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show();
-            }
-        });
+        switchConvolver.setOnCheckedChangeListener(isChecked ->
+                Toast.makeText(this, "Convolver: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show());
 
-        switchFIREqualizer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Toast.makeText(MainActivity.this, "FIREqualizer: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        switchConvolver.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Toast.makeText(MainActivity.this, "Convolver: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        switchFieldSurround.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Toast.makeText(MainActivity.this, "Field Surround: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show();
-            }
-        });
+        switchFieldSurround.setOnCheckedChangeListener(isChecked ->
+                Toast.makeText(this, "Field Surround: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show());
     }
 
     @Override
