@@ -1,8 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -92,6 +94,12 @@ public class MainActivity extends AppCompatActivity {
 
         switchFieldSurround.setOnCheckedChangeListener(isChecked ->
                 Toast.makeText(this, "Field Surround: " + (isChecked ? "ON" : "OFF"), Toast.LENGTH_SHORT).show());
+
+        RadioButton tabPhone = findViewById(R.id.tabPhone);
+        tabPhone.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PhoneSpeakerActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override

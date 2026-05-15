@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1A1A1A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#1A4A40">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp">
+
+            <TextView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:text="≡"
+                android:textColor="#4ECFB0"
+                android:textSize="24sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="VIPER4ARISE FX"
+                android:textColor="#4ECFB0"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:text="⋮"
+                android:textColor="#4ECFB0"
+                android:textSize="24sp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/tabGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+
+            <RadioButton
+                android:id="@+id/tabHeadset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="HEAD-\nSET"
+                android:textColor="#6AAA95"
+                android:textSize="9sp"
+                android:gravity="center"
+                android:button="@null"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"/>
+
+            <RadioButton
+                android:id="@+id/tabPhone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PHONE\nSPEAKER"
+                android:textColor="#FFFFFF"
+                android:textSize="9sp"
+                android:gravity="center"
+                android:button="@null"
+                android:checked="true"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"/>
+
+            <RadioButton
+                android:id="@+id/tabBluetooth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="BLUE-\nTOOTH"
+                android:textColor="#6AAA95"
+                android:textSize="9sp"
+                android:gravity="center"
+                android:button="@null"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"/>
+
+            <RadioButton
+                android:id="@+id/tabUsb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="USB/\nDOCK"
+                android:textColor="#6AAA95"
+                android:textSize="9sp"
+                android:gravity="center"
+                android:button="@null"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp"
+        android:background="#1E1E1E">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Speaker Settings"
+            android:textColor="#4ECFB0"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This page controls Phone Speaker audio settings."
+            android:textColor="#DDDDDD"
+            android:textSize="14sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</LinearLayout>
